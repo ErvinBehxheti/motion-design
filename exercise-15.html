@@ -1,30 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Exercise #15 || Animated logo</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise #15 || Animated logo</title>
 
-	<!-- Reset -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@2.0.0/modern-normalize.min.css">
+    <!-- Reset -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/modern-normalize@2.0.0/modern-normalize.min.css"
+    />
 
-	<style>
-		.container {
-			display: grid;
-			width: 100%;
-			height: 100vh;
-			place-content: center;
-			background-color: #F6E9FE;
-		}
+    <style>
+      .container {
+        display: grid;
+        width: 100%;
+        height: 100vh;
+        place-content: center;
+        background-color: #f6e9fe;
+      }
 
-		/* Air */
-	</style>
-</head>
-<body>
-	<div class="container">
-		<!-- Air -->
-	</div>
+      /* Air */
+      svg rect,
+      svg path {
+        stroke: #100139;
+        stroke-width: 10;
+        stroke-linecap: round;
+      }
 
-	<!-- Air -->
-</body>
+      svg {
+        overflow: visible;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Air -->
+      <svg width="166" height="259" viewBox="0 0 166 259" fill="none">
+        <rect id="drejtkendsh" x="36" y="41" width="34" height="164" />
+        <path
+          id="rreth"
+          d="M35.4102 42.2467C42.4719 33.928 52.1661 27.5716 63.2669 23.9813C74.3677 20.3909 86.3765 19.7279 97.7748 22.076C109.173 24.4241 119.449 29.6779 127.303 37.1731C135.157 44.6682 140.236 54.068 141.898 64.1838C143.56 74.2996 141.731 84.6771 136.641 94.004C131.551 103.331 123.43 111.188 113.304 116.582C103.178 121.977 91.5017 124.665 79.7523 124.309C68.003 123.952 56.7079 120.566 47.2956 114.579L68.9796 89.0349C72.6757 91.386 77.111 92.7156 81.7247 92.8557C86.3384 92.9957 90.9233 91.9399 94.8996 89.8217C98.8759 87.7035 102.065 84.6181 104.064 80.9557C106.062 77.2932 106.781 73.2182 106.128 69.2459C105.475 65.2736 103.481 61.5825 100.397 58.6394C97.3127 55.6962 93.2776 53.6331 88.8018 52.7111C84.3259 51.789 79.6103 52.0494 75.2512 53.4592C70.8922 54.8691 67.0855 57.3651 64.3125 60.6316L35.4102 42.2467Z"
+        />
+        <path
+          id="rreth"
+          d="M49.9855 172.267C68.4278 156.697 97.7775 157.18 115.54 173.346C133.302 189.512 132.751 215.239 114.309 230.808C95.8664 246.378 66.5167 245.895 48.7544 229.729C30.992 213.563 31.5432 187.837 49.9855 172.267ZM88.9828 207.759C92.9026 204.45 93.0197 198.982 89.2445 195.546C85.4692 192.11 79.2312 192.007 75.3114 195.316C71.3917 198.626 71.2745 204.094 75.0498 207.529C78.825 210.965 85.063 211.068 88.9828 207.759Z"
+        />
+      </svg>
+    </div>
+
+    <!-- Air -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/DrawSVGPlugin3.min.js"></script>
+    <script>
+      gsap.set("#drejtkendsh", {
+        scale: 0.5,
+        transformOrigin: "50% 50%",
+      });
+
+      let tl = gsap.timeline({
+        repeat: 2,
+      });
+
+      tl.to("#drejtkendsh", {
+        scale: 1,
+        rotation: 360,
+        duration: 1.2,
+        ease: "elastic.out",
+      });
+
+      tl.fromTo(
+        "#rreth",
+        {
+          drawSVG: "100% 100%",
+        },
+        {
+          drawSVG: "0% 100%",
+          duration: 1.2,
+          ease: "power4.inOut",
+        }
+      );
+
+      tl.to("#drejtkendsh, #rreth", {
+        stroke: "#A41FF6",
+        duration: 0.4,
+      });
+    </script>
+  </body>
 </html>
